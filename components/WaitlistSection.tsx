@@ -30,7 +30,7 @@ export function WaitlistSection() {
       if (res.ok) {
         setStatus('success')
         setMessage(data.message || 'You are now on the waitlist!')
-        setEmail('') // Clear the input on success
+        setEmail('')
         setToastVisible(true)
         setTimeout(() => setToastVisible(false), 5000)
       } else {
@@ -50,7 +50,6 @@ export function WaitlistSection() {
   return (
     <section id="waitlist" className="relative py-32 px-4">
       <div className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-start">
-        {/* Left Column - Info */}
         <motion.div
           className="space-y-6"
           initial={{ opacity: 0, x: -30 }}
@@ -72,7 +71,7 @@ export function WaitlistSection() {
           </p>
           
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-3xl bg-white/5 border border-white/10 p-6 hover:border-white/20 transition-colors duration-300">
+            <div className="rounded-3xl bg-white/5 border border-white/10 p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
                   <Mail className="w-5 h-5 text-gray-300" />
@@ -82,12 +81,10 @@ export function WaitlistSection() {
                   <p className="font-semibold text-white">Stay informed</p>
                 </div>
               </div>
-              <p className="text-gray-400 text-sm">
-                Receive timely notifications when your waitlist spot moves forward and new features are released.
-              </p>
+              <p className="text-gray-400 text-sm">Receive notifications when new features are released.</p>
             </div>
             
-            <div className="rounded-3xl bg-white/5 border border-white/10 p-6 hover:border-white/20 transition-colors duration-300">
+            <div className="rounded-3xl bg-white/5 border border-white/10 p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
                   <CheckCircle2 className="w-5 h-5 text-gray-300" />
@@ -97,14 +94,11 @@ export function WaitlistSection() {
                   <p className="font-semibold text-white">Be the first</p>
                 </div>
               </div>
-              <p className="text-gray-400 text-sm">
-                Get exclusive early access to new releases and features before the public launch.
-              </p>
+              <p className="text-gray-400 text-sm">Get exclusive early access before the public launch.</p>
             </div>
           </div>
         </motion.div>
 
-        {/* Right Column - Form */}
         <motion.div
           className="relative"
           initial={{ opacity: 0, x: 30 }}
@@ -119,7 +113,7 @@ export function WaitlistSection() {
               <div>
                 <h3 className="text-2xl font-semibold mb-2">Reserve your spot</h3>
                 <p className="text-gray-400 leading-relaxed">
-                  Enter your email and we'll send you a confirmation. You'll be notified as soon as Memora is ready for you.
+                  Enter your email and we'll send you a confirmation. You'll be notified as soon as Memora is ready.
                 </p>
               </div>
               
@@ -143,31 +137,16 @@ export function WaitlistSection() {
                 <button
                   type="submit"
                   disabled={status === 'loading' || !email}
-                  className="w-full rounded-2xl bg-white text-black font-semibold py-3.5 hover:bg-gray-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white"
+                  className="w-full rounded-2xl bg-white text-black font-semibold py-3.5 hover:bg-gray-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {status === 'loading' ? (
-                    <span className="flex items-center justify-center gap-2">
-                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                      </svg>
-                      Joining...
-                    </span>
-                  ) : (
-                    'Join Waitlist'
-                  )}
+                  {status === 'loading' ? 'Joining...' : 'Join Waitlist'}
                 </button>
               </form>
-              
-              <p className="text-xs text-gray-500 text-center">
-                No spam, ever. We'll only email you about Memora updates.
-              </p>
             </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Toast Notification */}
       <AnimatePresence>
         {toastVisible && (
           <motion.div
@@ -177,27 +156,16 @@ export function WaitlistSection() {
             className="fixed bottom-6 right-6 z-50 w-[min(90vw,400px)] rounded-2xl border border-white/10 bg-black/95 p-4 shadow-2xl backdrop-blur-xl"
           >
             <div className="flex items-start gap-3">
-              <div className={`mt-0.5 rounded-full p-1.5 ${
-                status === 'success' 
-                  ? 'bg-white/10 text-white' 
-                  : 'bg-red-500/10 text-red-400'
-              }`}>
-                {status === 'success' ? (
-                  <CheckCircle2 className="w-5 h-5" />
-                ) : (
-                  <AlertCircle className="w-5 h-5" />
-                )}
+              <div className={`mt-0.5 rounded-full p-1.5 ${status === 'success' ? 'bg-white/10 text-white' : 'bg-red-500/10 text-red-400'}`}>
+                {status === 'success' ? <CheckCircle2 className="w-5 h-5" /> : <AlertCircle className="w-5 h-5" />}
               </div>
               <div className="flex-1">
                 <p className="font-semibold text-white text-sm">
-                  {status === 'success' ? 'Waitlist joined' : 'Unable to join waitlist'}
+                  {status === 'success' ? 'Waitlist joined' : 'Error'}
                 </p>
                 <p className="text-sm text-gray-400 mt-1">{message}</p>
               </div>
-              <button
-                onClick={() => setToastVisible(false)}
-                className="text-gray-500 hover:text-gray-300 transition-colors"
-              >
+              <button onClick={() => setToastVisible(false)} className="text-gray-500 hover:text-gray-300">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
