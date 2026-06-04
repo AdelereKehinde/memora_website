@@ -3,7 +3,9 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -29,22 +31,26 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-white rounded-lg"></div>
+            <Image
+  src="/memora.png"
+  alt="Memora Logo"
+  width={40}
+  height={40}
+  className="rounded-lg"
+/>
             <span className="text-xl font-bold">Memora</span>
           </div>
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-gray-400 hover:text-white transition-colors">Features</a>
-            <a href="#collaboration" className="text-gray-400 hover:text-white transition-colors">Collaboration</a>
-            <a href="#showcase" className="text-gray-400 hover:text-white transition-colors">Showcase</a>
-            <a href="#testimonials" className="text-gray-400 hover:text-white transition-colors">Testimonials</a>
+            <a href="#features" onClick={(e) => { e.preventDefault(); document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }) }} className="text-gray-400 hover:text-white transition-colors">Features</a>
+            <a href="#collaboration" onClick={(e) => { e.preventDefault(); document.getElementById('collaboration')?.scrollIntoView({ behavior: 'smooth' }) }} className="text-gray-400 hover:text-white transition-colors">Collaboration</a>
+            <a href="#showcase" onClick={(e) => { e.preventDefault(); document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' }) }} className="text-gray-400 hover:text-white transition-colors">Showcase</a>
+            <a href="#testimonials" onClick={(e) => { e.preventDefault(); document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' }) }} className="text-gray-400 hover:text-white transition-colors">Testimonials</a>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }} className="text-gray-400 hover:text-white transition-colors">Contact</a>
           </div>
           
           <div className="hidden md:flex items-center gap-4">
-            <button className="px-4 py-2 text-gray-400 hover:text-white transition-colors">
-              Sign In
-            </button>
-            <button className="px-6 py-2 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300">
+            <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })} className="px-6 py-2 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300">
               Get Started
             </button>
           </div>
@@ -67,15 +73,13 @@ export function Navigation() {
           exit={{ opacity: 0, height: 0 }}
         >
           <div className="px-4 py-6 space-y-4">
-            <a href="#features" className="block text-gray-400 hover:text-white transition-colors">Features</a>
-            <a href="#collaboration" className="block text-gray-400 hover:text-white transition-colors">Collaboration</a>
-            <a href="#showcase" className="block text-gray-400 hover:text-white transition-colors">Showcase</a>
-            <a href="#testimonials" className="block text-gray-400 hover:text-white transition-colors">Testimonials</a>
+            <a href="#features" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }) }} className="block text-gray-400 hover:text-white transition-colors">Features</a>
+            <a href="#collaboration" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); document.getElementById('collaboration')?.scrollIntoView({ behavior: 'smooth' }) }} className="block text-gray-400 hover:text-white transition-colors">Collaboration</a>
+            <a href="#showcase" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' }) }} className="block text-gray-400 hover:text-white transition-colors">Showcase</a>
+            <a href="#testimonials" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' }) }} className="block text-gray-400 hover:text-white transition-colors">Testimonials</a>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }} className="block text-gray-400 hover:text-white transition-colors">Contact</a>
             <div className="pt-4 space-y-3">
-              <button className="w-full px-4 py-3 text-gray-400 hover:text-white transition-colors border border-white/10 rounded-full">
-                Sign In
-              </button>
-              <button className="w-full px-4 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300">
+              <button onClick={() => { setIsMobileMenuOpen(false); document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' }) }} className="w-full inline-block px-4 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 text-center">
                 Get Started
               </button>
             </div>

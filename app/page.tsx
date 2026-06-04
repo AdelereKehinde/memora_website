@@ -7,6 +7,9 @@ import { ShowcaseSection } from '@/components/ShowCaseSection'
 import { CollaborationSection } from '@/components/CollaborationSection'
 import { TestimonialsSection } from '@/components/TestimonialsSection'
 import { CTASection } from '@/components/CTASection'
+import { DownloadSection } from '@/components/DownloadSection'
+import { WaitlistSection } from '@/components/WaitlistSection'
+import { ContactSection } from '@/components/ContactSection'
 import { Footer } from '@/components/Footer'
 
 export default function Home() {
@@ -20,6 +23,9 @@ export default function Home() {
       <ShowcaseSection />
       <TestimonialsSection />
       <CTASection />
+      <DownloadSection />
+      <WaitlistSection />
+      <ContactSection />
       <Footer />
     </main>
   )

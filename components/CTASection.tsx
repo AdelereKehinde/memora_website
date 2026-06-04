@@ -3,6 +3,7 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, Zap, Shield, Globe } from 'lucide-react'
+import Link from 'next/link'
 
 export function CTASection() {
   return (
@@ -27,18 +28,17 @@ export function CTASection() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <motion.button
-              className="group px-10 py-5 bg-white text-black font-bold rounded-full text-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="flex items-center gap-2">
-                Get Started Free
-                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </motion.button>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })} className="group px-10 py-5 bg-white text-black font-bold rounded-full text-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20 inline-flex items-center justify-center">
+                <span className="flex items-center gap-2">
+                  Get Started Free
+                  <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </button>
+            </motion.div>
             
             <motion.button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-10 py-5 border-2 border-white/20 text-white font-bold rounded-full text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

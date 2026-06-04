@@ -3,7 +3,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { Users, CursorArrowRays, ChatBubbleLeftRight, Share } from 'lucide-react'
+import { Users, TextCursor, MessageSquare, Share } from 'lucide-react'
 
 const steps = [
   {
@@ -13,13 +13,13 @@ const steps = [
     color: "from-blue-500/20 to-purple-500/20"
   },
   {
-    icon: CursorArrowRays,
+    icon: TextCursor,
     title: "See Live Cursors",
     description: "Watch as collaborators edit in real-time with colorful cursors and presence indicators.",
     color: "from-green-500/20 to-teal-500/20"
   },
   {
-    icon: ChatBubbleLeftRight,
+    icon: MessageSquare,
     title: "Discuss & Comment",
     description: "Leave comments and have threaded discussions right within your documents.",
     color: "from-yellow-500/20 to-orange-500/20"
@@ -43,7 +43,7 @@ export function CollaborationSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
 
   return (
-    <section ref={containerRef} className="relative py-32 px-4">
+    <section ref={containerRef} id="collaboration" className="relative py-32 px-4">
       <motion.div style={{ scale, opacity }} className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-20"
@@ -98,7 +98,7 @@ export function CollaborationSection() {
           <p className="text-xl text-gray-400 mb-8">
             Join thousands of teams already using Memora to collaborate better.
           </p>
-          <button className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 hover:scale-105">
+          <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 hover:scale-105">
             Start Collaborating Free
           </button>
         </motion.div>

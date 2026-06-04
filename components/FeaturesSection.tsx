@@ -90,7 +90,7 @@ export function FeaturesSection() {
   const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100])
 
   return (
-    <section ref={containerRef} className="relative py-32 px-4">
+    <section ref={containerRef} id="features" className="relative py-32 px-4">
       <motion.div style={{ opacity, y }} className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-20"

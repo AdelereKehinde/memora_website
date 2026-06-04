@@ -1,8 +1,8 @@
-// components/HeroSection.tsx
+// components/HeroSection.tsx (updated)
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Play } from 'lucide-react'
+import { ArrowRight, Play, ChevronDown } from 'lucide-react'
 
 export function HeroSection() {
   return (
@@ -14,7 +14,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="inline-block px-4 py-1.5 mb-6 text-sm border border-white/20 rounded-full bg-white/5 backdrop-blur-sm">
-            ✨ Now in Public Beta
+            Now in Public Beta
           </span>
         </motion.div>
         
@@ -47,14 +47,14 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <button className="group relative px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20">
+          <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })} className="group relative px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20">
             <span className="flex items-center gap-2">
               Get Started Free
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
           </button>
           
-          <button className="group px-8 py-4 border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
+          <button onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })} className="group px-8 py-4 border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
             <span className="flex items-center gap-2">
               <Play className="w-5 h-5" />
               Watch Demo
@@ -72,10 +72,23 @@ export function HeroSection() {
             <span className="w-2 h-2 rounded-full bg-green-500"></span>
             No credit card required
           </span>
-          <span>•</span>
-          <span>Free plan available</span>
-          <span>•</span>
-          <span>2,000+ teams onboard</span>
+          <span className="hidden sm:inline">•</span>
+          <span className="hidden sm:inline">Free plan available</span>
+          <span className="hidden sm:inline">•</span>
+          <span className="hidden sm:inline">2,000+ teams onboard</span>
+        </motion.div>
+        
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 10, 0] }}
+          transition={{ 
+            opacity: { delay: 1.5, duration: 0.5 },
+            y: { delay: 1.5, duration: 2, repeat: Infinity }
+          }}
+        >
+          <ChevronDown className="w-6 h-6 text-gray-500" />
         </motion.div>
       </div>
       

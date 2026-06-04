@@ -1,69 +1,65 @@
 // components/ShowcaseSection.tsx
 'use client'
 
-import { motion } from 'framer-motion'
-import { ThreeImageCard } from './ThreeImageCard'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
+import { ThreeVideoShowcase } from './ThreeVideoShowcase'
 
 export function ShowcaseSection() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+  
+  const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.95, 1, 1, 0.95])
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+
   return (
-    <section className="relative py-32 px-4 overflow-hidden">
+    <section ref={containerRef} className="relative py-32 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tighter">
-            Beautiful by{' '}
-            <span className="text-gray-400">default</span>
+          <motion.span
+            className="inline-block px-4 py-1.5 mb-6 text-sm border border-white/20 rounded-full bg-white/5 backdrop-blur-sm"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            See it in action
+          </motion.span>
+          
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter">
+            Experience the{' '}
+            <span className="bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">
+              future of collaboration
+            </span>
           </h2>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-            A stunning interface that makes collaboration a joy, not a chore.
+          <p className="text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
+            Watch how Memora transforms the way teams create, organize, and collaborate 
+            on documents. Real-time editing, nested structures, and seamless sharing — 
+            all in one beautifully designed workspace.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <ThreeImageCard 
-              imageSrc="/dashboard.png" 
-              alt="Dashboard"
-              className="h-[500px]"
-            />
-          </motion.div>
+        <motion.div
+          style={{ scale, opacity }}
+          className="relative mx-auto max-w-5xl"
+        >
+          {/* Subtle background glow */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-white/5 rounded-3xl blur-3xl"></div>
           
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <ThreeImageCard 
-              imageSrc="/editor.png" 
-              alt="Editor"
-              className="h-[500px]"
-            />
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <ThreeImageCard 
-              imageSrc="/sharing.png" 
-              alt="Sharing"
-              className="h-[500px]"
-            />
-          </motion.div>
-        </div>
+          {/* Video container with subtle border */}
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-black/50 backdrop-blur-sm">
+            <ThreeVideoShowcase />
+          </div>
+        </motion.div>
       </div>
     </section>
   )
