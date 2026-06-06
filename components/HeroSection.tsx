@@ -1,4 +1,4 @@
-// components/HeroSection.tsx (updated)
+// components/HeroSection.tsx
 'use client'
 
 import { motion } from 'framer-motion'
@@ -42,21 +42,28 @@ export function HeroSection() {
         </motion.p>
         
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <button className="group relative px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20">
+          {/* Get Started Button - Solid white, very clickable */}
+          <a 
+            href="#waitlist" 
+            className="group relative px-10 py-5 bg-white text-black font-bold rounded-full text-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20 cursor-pointer z-50"
+            style={{ pointerEvents: 'auto' }}
+          >
             <span className="flex items-center gap-2">
               Get Started Free
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
-          </button>
+          </a>
           
+          {/* Watch Demo Button - Clear border, very clickable */}
           <a 
             href="#showcase" 
-            className="group px-8 py-4 border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+            className="group px-10 py-5 border-2 border-white text-white font-bold rounded-full text-lg hover:bg-white/10 transition-all duration-300 hover:scale-105 cursor-pointer z-50"
+            style={{ pointerEvents: 'auto' }}
           >
             <span className="flex items-center gap-2">
               <Play className="w-5 h-5" />
@@ -64,7 +71,6 @@ export function HeroSection() {
             </span>
           </a>
         </motion.div>
-
         
         <motion.div
           className="mt-16 flex items-center justify-center gap-8 text-sm text-gray-500"
@@ -97,8 +103,8 @@ export function HeroSection() {
       </div>
       
       {/* Gradient overlays */}
-      <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-black to-transparent z-10"></div>
-      <div className="absolute top-0 left-0 right-0 h-96 bg-gradient-to-b from-black to-transparent z-10"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 right-0 h-96 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none"></div>
     </section>
   )
 }
