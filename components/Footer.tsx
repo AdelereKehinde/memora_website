@@ -1,9 +1,9 @@
 // components/Footer.tsx
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Github, Twitter, Linkedin, Mail, Phone } from 'lucide-react'
-
+import { GitBranch, MessageCircle, Link, Mail, Phone } from 'lucide-react'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -14,7 +14,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-white rounded-lg"></div>
+              <Image
+                src="/memora.png"
+                alt="Memora Logo"
+                width={40}
+                height={40}
+                className="rounded-lg"
+              />
               <span className="text-xl font-bold">Memora</span>
             </div>
             <p className="text-gray-400 max-w-md mb-6">
@@ -48,38 +54,106 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Product</h3>
             <ul className="space-y-3 text-gray-400">
-              <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-              <li><a href="#showcase" className="hover:text-white transition-colors">Demo</a></li>
-              <li><a href="#waitlist" className="hover:text-white transition-colors">Waitlist</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
+              <li>
+                <a 
+                  href="#features" 
+                  onClick={(e) => { 
+                    e.preventDefault(); 
+                    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }) 
+                  }} 
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Features
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#showcase" 
+                  onClick={(e) => { 
+                    e.preventDefault(); 
+                    document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' }) 
+                  }} 
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Demo
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#waitlist" 
+                  onClick={(e) => { 
+                    e.preventDefault(); 
+                    document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' }) 
+                  }} 
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Waitlist
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#documentation" 
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Documentation
+                </a>
+              </li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-3 text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-              <li><a href="mailto:napg.adekunle@gmail.com" className="hover:text-white transition-colors">Contact</a></li>
+              <li>
+                <a 
+                  href="#about" 
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#blog" 
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#careers" 
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="mailto:napg.adekunle@gmail.com" 
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
         </div>
         
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            {currentYear} Memora. All rights reserved.
+            © {currentYear} Memora. All rights reserved.
           </p>
           
           <div className="flex items-center gap-6">
             <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              <Github className="w-5 h-5" />
+              <GitBranch className="w-5 h-5" />
             </a>
             <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              <Twitter className="w-5 h-5" />
+              <MessageCircle className="w-5 h-5" />
             </a>
             <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              <Linkedin className="w-5 h-5" />
+              <Link className="w-5 h-5" />
             </a>
             <a href="mailto:napg.adekunle@gmail.com" className="text-gray-400 hover:text-white transition-colors">
               <Mail className="w-5 h-5" />
