@@ -18,8 +18,8 @@ const testimonials = [
     rating: 5
   },
   {
-    name: "Maquambe Brown",
-    role: "CEO of Handled",
+    name: "Adewale Adekola",
+    role: "Product desginer at Klyron",
     content: "The clean interface and powerful editing capabilities make Memora a joy to use. Our design documentation has never been more organized.",
     rating: 5
   }
