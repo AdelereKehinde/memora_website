@@ -20,8 +20,8 @@ const steps = [
   },
   {
     icon: MessageSquare,
-    title: "Discuss & Comment",
-    description: "Leave comments and have threaded discussions right within your documents.",
+    title: "Invitation Email",
+    description: "Get a detailed invitations mail for a shared document  .",
     color: "from-yellow-500/20 to-orange-500/20"
   },
   {

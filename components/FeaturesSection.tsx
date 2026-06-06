@@ -12,21 +12,20 @@ import {
   Users, 
   Zap, 
   Smartphone,
-  Shield,
-  GitBranch
+  Shield
 } from 'lucide-react'
 
 const features = [
   {
     icon: Edit3,
     title: "Rich Text Editor",
-    description: "Powerful BlockNote editor with support for various block types, images, and embeds.",
+    description: "Powerful TipTap editor with support for various block types, images, and embeds.",
     gradient: "from-white/20 to-white/5"
   },
   {
     icon: Share2,
     title: "Real-time Collaboration",
-    description: "See collaborators' cursors and edits in real-time. Comment and discuss seamlessly.",
+    description: "See collaborators' cursors and edits in real-time.",
     gradient: "from-white/20 to-white/5"
   },
   {
@@ -69,12 +68,6 @@ const features = [
     icon: Shield,
     title: "Secure Authentication",
     description: "Enterprise-grade security with Clerk authentication and Google sign-in support.",
-    gradient: "from-white/20 to-white/5"
-  },
-  {
-    icon: GitBranch,
-    title: "Version History",
-    description: "Track changes and revert to previous versions with built-in document history.",
     gradient: "from-white/20 to-white/5"
   }
 ]

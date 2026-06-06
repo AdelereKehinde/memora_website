@@ -23,7 +23,6 @@ export default function Home() {
       <ShowcaseSection />
       <TestimonialsSection />
       <CTASection />
-      <DownloadSection />
       <WaitlistSection />
       <ContactSection />
       <Footer />

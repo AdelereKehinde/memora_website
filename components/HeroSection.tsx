@@ -47,20 +47,24 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <button onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })} className="group relative px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20">
+          <button className="group relative px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20">
             <span className="flex items-center gap-2">
               Get Started Free
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
           </button>
           
-          <button onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })} className="group px-8 py-4 border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
+          <a 
+            href="#showcase" 
+            className="group px-8 py-4 border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+          >
             <span className="flex items-center gap-2">
               <Play className="w-5 h-5" />
               Watch Demo
             </span>
-          </button>
+          </a>
         </motion.div>
+
         
         <motion.div
           className="mt-16 flex items-center justify-center gap-8 text-sm text-gray-500"

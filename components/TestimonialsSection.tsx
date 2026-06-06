@@ -6,20 +6,20 @@ import { Star } from 'lucide-react'
 
 const testimonials = [
   {
-    name: "Sarah Chen",
-    role: "Product Manager at TechCo",
+    name: "Adelere Kehinde",
+    role: "FullStack Developer at Handled",
     content: "Memora has completely transformed how our team collaborates on documentation. The real-time editing is seamless and the nested document structure keeps everything organized.",
     rating: 5
   },
   {
-    name: "Marcus Johnson",
-    role: "Lead Developer at StartupX",
+    name: "Jamal Ademola",
+    role: "Mobile developer at Earnicle",
     content: "We switched from Notion to Memora and haven't looked back. The performance is incredible and the sharing features are exactly what we needed.",
     rating: 5
   },
   {
-    name: "Emily Rodriguez",
-    role: "Design Lead at CreativeStudio",
+    name: "Maquambe Brown",
+    role: "CEO of Handled",
     content: "The clean interface and powerful editing capabilities make Memora a joy to use. Our design documentation has never been more organized.",
     rating: 5
   }

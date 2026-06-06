@@ -16,7 +16,7 @@ export function ShowcaseSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
 
   return (
-    <section ref={containerRef} className="relative py-32 px-4 overflow-hidden">
+    <section id="showcase" ref={containerRef} className="relative py-32 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -43,7 +43,7 @@ export function ShowcaseSection() {
           </h2>
           <p className="text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
             Watch how Memora transforms the way teams create, organize, and collaborate 
-            on documents. Real-time editing, nested structures, and seamless sharing — 
+            on documents. Real-time editing with TipTap, nested structures, and seamless sharing — 
             all in one beautifully designed workspace.
           </p>
         </motion.div>
