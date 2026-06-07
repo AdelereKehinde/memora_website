@@ -2,7 +2,7 @@
 import nodemailer from "nodemailer";
 
 // Direct image URL
-const LOGO_URL = "https://i.ibb.co/sJKMpgKf/memora.png";
+const LOGO_URL = "https://textbook-ashen.vercel.app/memora.png";
 
 export async function POST(req: Request) {
   try {
