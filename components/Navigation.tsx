@@ -79,9 +79,12 @@ export function Navigation() {
             <a href="#testimonials" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' }) }} className="block text-gray-400 hover:text-white transition-colors">Testimonials</a>
             <a href="#contact" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }} className="block text-gray-400 hover:text-white transition-colors">Contact</a>
             <div className="pt-4 space-y-3">
-              <button onClick={() => { setIsMobileMenuOpen(false); document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' }) }} className="w-full inline-block px-4 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 text-center">
-                Get Started
-              </button>
+              <button
+                onClick={() => window.open('https://textbook-ashen.vercel.app/', '_blank')}
+                className="px-6 py-2 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300"
+              >
+  Get Started
+</button>
             </div>
           </div>
         </motion.div>
