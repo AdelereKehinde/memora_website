@@ -48,16 +48,17 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           {/* Get Started Button - Solid white, very clickable */}
-          <a 
-            href="#waitlist" 
-            className="group relative px-10 py-5 bg-white text-black font-bold rounded-full text-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20 cursor-pointer z-50"
-            style={{ pointerEvents: 'auto' }}
-          >
-            <span className="flex items-center gap-2">
-              Get Started Free
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </span>
-          </a>
+         <a
+  href="https://memora-one-omega.vercel.app/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group relative px-10 py-5 bg-white text-black font-bold rounded-full text-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20 cursor-pointer z-50"
+>
+  <span className="flex items-center gap-2">
+    Get Started Free
+    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+  </span>
+</a>
           
           {/* Watch Demo Button - Clear border, very clickable */}
           <a 
