@@ -80,7 +80,7 @@ export function Navigation() {
             <a href="#contact" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }} className="block text-gray-400 hover:text-white transition-colors">Contact</a>
             <div className="pt-4 space-y-3">
               <button
-                onClick={() => window.open('https://textbook-ashen.vercel.app/', '_blank')}
+                onClick={() => window.open('https://memora-one-omega.vercel.app/', '_blank')}
                 className="px-6 py-2 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300"
               >
   Get Started
